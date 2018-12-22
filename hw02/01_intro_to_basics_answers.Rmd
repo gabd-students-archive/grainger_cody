@@ -1,0 +1,201 @@
+---
+title: "Intro to Basics"
+subtitle: "Free Introduction to R"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+## 1.1 Comments and calculators
+
+#### Instructions
+
+Here is some sample code. Can you see which lines are actual R code and which are comments?
+
+Add a line of code in the space provided that calculates the sum of 6 and 12, and press the green arrow to run your code chunk.
+
+
+```{r}
+# Calculate 3 + 4
+3 + 4
+
+# Calculate 6 + 12
+
+6 + 12
+
+```
+
+## 1.2 Arithmetic with R
+
+
+#### Instructions
+
+- Type `2 ^ 5` where indicated in the code chunk below to calculate 2 to the power 5.
+
+- Type `28 %% 6` where indicated in the code chunk to calculate 28 modulo 6.
+
+Click the green arrow and have a look at the R output below the code.
+Note how the # symbol is used to add comments on the R code but is not included in the outout.
+
+
+```{r}
+# An addition
+5 + 5 
+
+# A subtraction
+5 - 5 
+
+# A multiplication
+3 * 5
+
+ # A division
+(5 + 5) / 2 
+
+# Exponentiation
+2^5
+
+
+# Modulo
+28%%6
+
+
+```
+
+## 1.3 Variable assignment
+
+#### Instructions
+
+Complete the code in the chunk such that it assigns the value 42 to the variable `x`, and then view the contents of `x`. You know what to do with the green arrow. Notice that when you ask R to print `x`, the value 42 appears. At least it will if you did this correctly!
+
+
+```{r}
+# Assign the value 42 to x
+x=42
+
+# Print out the value of the variable x
+x
+
+#
+```
+
+
+## 1.4 Variable assignment (2)
+
+#### Instructions
+
+- Type the following code in the editor: `my_apples <- 5`. This will assign the value 5 to `my_apples`.
+
+- Type `my_apples` below the second comment. This will print out the value of `my_apples`.
+
+Run the code chunk and look at the console: you see that the number 5 is printed. So R now links the variable `my_apples` to the value 5.
+
+
+```{r}
+# Assign the value 5 to the variable my_apples
+my_apples <- 5
+
+# Print out the value of the variable my_apples
+my_apples
+
+#
+```
+
+
+## 1.5 Variable assignment (3)
+
+#### Instructions
+
+- Assign to `my_oranges` the value 6.
+
+- Add the variables `my_apples` and `my_oranges` and have R simply print the result.
+
+- Assign the result of adding `my_apples` and `my_oranges` to a new variable `my_fruit`.
+
+```{r}
+# Assign a value to the variables my_apples and my_oranges
+my_apples <- 5
+my_oranges <- 10
+
+# Add these two variables together
+my_apples + my_oranges 
+
+# Create the variable my_fruit
+my_fruit <- my_apples + my_oranges
+my_fruit
+#
+```
+
+
+## 1.6 Apples and oranges
+
+- Run the code chunk and read the error message. Make sure to understand why this did not work.
+
+- Adjust the code so that R knows you have 6 oranges and thus a fruit basket with 11 pieces of fruit.
+
+```{r}
+# Answer
+
+# Assign a value to the variable my_apples
+my_apples <- 5 
+
+# Fix the assignment of my_oranges
+my_oranges <- "six"
+
+# Create the variable my_fruit and print it out
+my_fruit <- my_apples + my_oranges 
+
+my_fruit
+```
+
+
+
+## 1.7 Basic data types in R
+
+#### Instructions
+
+Assign values to the these variables:
+
+- `my_numeric` variable to 42.
+
+- `my_character` variable to "universe". Note that the quotation marks indicate that "universe" is a character.
+
+- `my_logical` variable to `FALSE.` Note that R is case sensitive!
+
+
+```{r}
+# Assign 42 to my_numeric
+my_numeric = 42
+
+# Assign "universe" to my_character
+my_character = "universe"
+
+# Assign FALSE to my_logical. Remember: Case matters
+my_logical = FALSE
+```
+
+
+
+## 1.8 What is that data type?
+
+#### Instructions
+
+- Complete the code to show the classes of `my_character` and `my_logical`.
+
+```{r include=TRUE}
+# Declare variables of different types
+my_numeric <- 42
+my_character <- "universe"
+my_logical <- FALSE 
+
+# Check class of my_numeric
+class(my_numeric)
+
+# Check class of my_character
+class(my_character)
+
+# Check class of my_logical
+class(my_logical)
+
+#
+```
+
