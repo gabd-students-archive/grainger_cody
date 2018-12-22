@@ -1,0 +1,141 @@
+---
+title: "6: Lists"
+subtitle: Introduction to R
+output: html_notebook
+editor_options:
+  chunk_output_type: inline
+---
+
+## 6.1 Lists, why would you need them?
+
+**Nothing to do here.**
+
+## 6.2 Creating a list
+
+#### Instructions
+
+Construct a list, named `my_list`, that contains the variables `my_vector`, `my_matrix` and `my_df` as list components.
+
+```{r}
+# Vector with numerics from 1 up to 10
+my_vector <- 1:10 
+
+# Matrix with numerics from 1 up to 9
+my_matrix <- matrix(1:9, ncol = 3)
+
+# First 10 elements of the built-in data frame mtcars
+my_df <- mtcars[1:10,]
+
+# Construct list with these different elements:
+my_list <- list(my_vector, my_matrix, my_df)
+my_list
+#
+```
+
+
+## 6.3 Creating a named list
+
+#### Instructions
+
+- Change the code of the previous exercise (see below) by adding names to the components. Use for `my_vector` the name `vec`, for `my_matrix` the name `mat` and for `my_df` the name `df`.
+
+- Print out my_list so you can inspect the output.
+
+```{r}
+# Vector with numerics from 1 up to 10
+my_vector <- 1:10 
+
+# Matrix with numerics from 1 up to 9
+my_matrix <- matrix(1:9, ncol = 3)
+
+# First 10 elements of the built-in data frame mtcars
+my_df <- mtcars[1:10,]
+
+# Adapt list() call to give the components names
+my_list <- list(vec=my_vector, mat=my_matrix, df=my_df)
+
+# Print out my_list
+my_list
+
+#
+```
+
+
+## 6.4 Creating a named list (2)
+
+#### Instructions
+
+Complete the code below to create `shining_list`; it contains three elements:
+
+- moviename: a character string with the movie title (stored in `mov`)
+- actors: a vector with the main actors' names (stored in `act`)
+- reviews: a data frame that contains some reviews (stored in `rev`)
+
+Do not forget to name the list components accordingly. The names to use are are `moviename`, `actors` and `reviews`).
+
+```{r}
+# The variables mov, act and rev are available
+
+mov<-"The Shining"
+act<-c("Jack Nicholson", 
+         "Shelley Duvall", 
+         "Danny Lloyd", 
+         "Scatman Crothers", 
+         "Barry Nelson" )
+
+scores <- c(4.5, 4, 5.0)
+sources <- c("IMDb1", "IMDb2", "IMDb3")
+comments <- c("Best Horror Film I Have Ever Seen",
+              "A truly brilliant and scary film from Stanley Kubrick",
+              "A masterpiece of psychological horror")
+rev <- data.frame(scores, sources, comments)
+
+# Finish the code to build shining_list
+shining_list <- list(movies = mov,actors = act,reviews = rev)
+shining_list
+
+#
+```
+
+## 6.5 Selecting elements from a list
+
+#### Instructions
+
+- Select from `shining_list` the vector representing the actors. Simply print out this vector.
+
+- Select from `shining_list` the second element in the vector representing the actors. Do a printout like before.
+
+```{r}
+# shining_list is already pre-loaded in the workspace
+
+# Print out the vector representing the actors
+shining_list[[2]]
+
+# Print the second element of the vector representing the actors
+shining_list[[2]][2]
+
+#
+```
+
+
+## 6.6 Adding more movie information to the list
+
+#### Instructions
+
+- Complete the code below such that an item named `year` is added to the `shining_list` with the value `1980`. Assign the result to `shining_list_full`.
+
+- Finally, have a look at the structure of `shining_list_full` with the `str()` function.
+
+```{r}
+# shining_list, the list containing movie name, actors and reviews, is pre-loaded in the workspace
+
+# We forgot something; add the year to shining_list
+year=1980
+ext_list <- c(shining_list,year)
+shining_list_full <- ext_list
+# Have a look at shining_list_full
+str(shining_list_full)
+
+#
+```
+
