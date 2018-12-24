@@ -37,5 +37,16 @@ ansc <-
   as_tibble()
 
 ansc
+
+ansc %>%
+  group_by(dataset) %>%
+  summarize(
+    mean_x = mean(x),
+    stdev_x = sd(x), 
+    mean_y = mean(y),
+    stdev_y = sd(y)
+  )
+
+
 ```
 
