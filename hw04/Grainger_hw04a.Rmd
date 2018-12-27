@@ -81,19 +81,54 @@ ggplot(data = mpg) +
 
 
 **2:** Which variables in `mpg` are categorical? Which variables are continuous? (*Hint:* type `?mpg` to read the documentation for the dataset). How can you see this information when you run mpg?
+```{r}
+?mpg
+```
 
+ The categorial variables are manufacturer model, year, displacement, cylinders, transmissions, drive type, fuel type, and class/type of car. Continouous included hwy and cty mpg.
 
 **3:** Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables? **Note:** You need several code chunks here to answer this question.
+```{r}
+# With color mapped to class, we see the same chart as above.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))
+```
+```{r}
+# When we map size to class, we get a rather hard to read figure as the data points vary so much in size. I also get a message stating "Using size for a discrete variable is not advised".
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, size = class))
+```
+```{r}
+# When shape is mapped over class, we get a variety of symbols for the differeing classes of cars. suv does not ppear to have a representative symbol.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+```
 
 
 **4:** What happens if you map the same variable to multiple aesthetics?
+```{r}
+# When multiple aesthetics are mapped to the same variable such as color and shape, we get a figure with mulitcolored, multishaped data points with the corresponding legend.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class, shape = class))
+```
 
 
 **5:** What does the stroke aesthetic do? What shapes does it work with? (*Hint:* use `?geom_point`)
+```{r}
+# Stroke modifies the width of orders on shapes. When set to 5, the shapes become very thick and hard to distinguish from one another. All shapes in my plot were affected by the change in stroke to 5.
+?geom_point
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class, color = class, stroke = 5))
+```
 
 
 
 **6:** What happens if you map an aesthetic to something other than a variable name, like `aes(colour = displ < 5)`?
+```{r}
+# When color is mapped to displ, we get a gradient of blues as we move from small displ to larger displ.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = displ, stroke = 1))
+```
 
 
 ### Section 3.5: Facets
@@ -103,14 +138,40 @@ ggplot(data = mpg) +
 #### Section 3.5 questions
 
 **1:** What happens if you facet on a continuous variable? **Note:** Write a prediction, then make and run your code chunk.
+```{r}
+# If I facet on a continuous variable, then the plot will be split up into many more grids than a plot where categorical variables were faceted.
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(hwy ~ displ)
+
+# The figure is unreadable after the facet is applied to hwy and displ as the plot was split up too much with infomeaton on axes overlapping.
+```
 
 
 
 **2:** What do the empty cells in plot with `facet_grid(drv ~ cyl)` mean? How do they relate to this plot?
+```{r}
+# The empty sections have no data to be plotted. For example, there are no data for 5 cylinder 4-wheel-drive cars.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+```
 
 
 
 **3:** What plots does the following code make? What does `.` do?
+```{r}
+# In the first plot, the "." the plot grid is arranged horizontally and the plot includes hwy, displ, and drv variables.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+# In the second plot, the "." the plot grid is arranged vertically and the plot includes hwy, displ, and cyl variables.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
+```
 
 
 
