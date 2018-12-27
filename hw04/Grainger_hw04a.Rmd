@@ -176,13 +176,29 @@ ggplot(data = mpg) +
 
 
 **4:** Take the first faceted plot below. What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?
+```{r}
+#When using facets, data sets can be essentially broken into multiple smaller but seemingly magnified plots for (in our case using the mpg dataset) the class categorial variable. This can be used to compare the hwy mpg to engine displ for each individual class of car seperately. However, in a single plot where only color is changed, one can better compare multiple classes of vehicles to one another.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+```
 
 
 
 **5:** Read `?facet_wrap`. What does `nrow` do? What does `ncol` do? What other options control the layout of the individual panels? Why doesn’t `facet_grid()` have nrow and ncol argument?
+```{r}
+#nrow and ncol corresspond to the number of rows and columns in a plot.
+?facet_wrap
+#facet_grid has an additional variable that is not present in facet_wrap.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(~ class, nrow = 2)
+
+```
 
 
 **6:** When using `facet_grid()` you should usually put the variable with more unique levels in the columns. Why?
+# Variables with more unique levels can potentially populate oherwise empty plots with data points
 
 ### Section 3.6: Geometric objects
 
@@ -191,20 +207,55 @@ ggplot(data = mpg) +
 #### Section 3.6.1 Questions
 
 **1:** What geom would you use to draw a line chart? A boxplot? A histogram? An area chart? **Note:** You will have to make some types of these charts in Part 2 of this assignment.
+```{r}
+# Bar charts use bar geoms, line charts use line geoms, box plots use boxplot geoms, and histograms use the same geom as bar charts.
+??geoms
+```
+
+
 
 
 **2:** Run this code in your head and predict what the output will look like. Then, run the code in R and check your predictions.
 
+```{r}
+#Prediction - Seperate lines will be created for each of the drive types.
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
 
 
 **3:** What does `show.legend = FALSE` do? What happens if you remove it?
 **Note:** Skip the "Why do you think I used it earlier in the chapter?" question.
+```{r}
+#Not sure what it does, i am assuming it removes the elegend but I do not know hoe to make it work.
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+  show.legend = FALSE
+```
 
 
 **4:** What does the `se` argument to `geom_smooth()` do?
+```{r}
+# Removing se = FALSE adds the shaded area to the lines on the plot.
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
 
 
 **5:** Will these two graphs look different? Why/why not?
+```{r}
+# I predict no difference in the two graphs.
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_smooth()
+
+ggplot() + 
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))
+```
 
 
 **6:** Recreate the R code necessary to generate the following graphs. **Note:** Enter a separate code chunk for each graph, numbered 1 to 6, starting row-wise at upper left. 
@@ -237,15 +288,37 @@ ggplot(data = mpg) +
 #### Section 3.8 Questions
 
 **1:** What is the problem with this plot? How could you improve it. *Hint:* Remember the size of the `mpg` data set from earlier in this exercise. Does the number of points seem correct? **Note:** Write the code to improve it. 
+```{r}
+#The plot may be suffering from overplotting. This can be avoided by jittering the data points. A previous data set from FHL I tried to plot in R suffered from this problem but at the time I did not know this could be done.
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_point()
+#Jittering the data revealed many more hidden data points. 
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_point( position = "jitter")
+```
 
 
 **2:** What parameters to `geom_jitter()` control the amount of jittering?
+```{r}
+# The parameters include dodging, filling, identity, jitter, and stacking of data point positions.
+```
 
 
 **3:** Compare and contracts `geom_jitter()` with `geom_count()`.
+```{r}
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_jitter()
+ #Geom count creates larger datat points where multiple data points overlap.
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_count()
+```
 
 
 **4:** What is the default position adjustement for `geom_boxplot()`? Create a visualization of the `mpg` dataset that demonstrates it.
+```{r}
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_boxplot()
+```
 
 
 ### Section 3.9: Coordinate systems
