@@ -1,0 +1,575 @@
+---
+title: "HW05 Part 1: Complete the sections"
+author: "Cody Grainger"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- Change "your name" in the YAML header above to your name.
+
+- As usual, enter the examples in code chunks and run them, unless told otherwise.
+
+## Chapter 10: Tibbles
+
+Read [R4ds Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html), sections 1-3.
+
+### 10.1: Introduction
+
+Load the tidyverse package. 
+
+```{r}
+library("tidyverse")
+library("nycflights13")
+```
+
+
+### 10.2: Creating tibbles
+
+Enter your code chunks for Section 10.2 here.
+
+Describe what each chunk code does. 
+```{r}
+# 10.2 Creating Tibbles
+
+# The default R data frame setup can be modified into a tibble data frame by entering as_tibble()
+as_tibble(iris)
+```
+```{r}
+# 10.2
+
+# New tibbles can be created using tibble()
+tibble(x = 1:5, y = 1, z = x ^ 2 + y)
+```
+```{r}
+# Tibble style data frames can use non-syntactic names such as numbers for names or unusual symbols that are not letters or numbers
+
+tb <- tibble(`:)` = "smile", ` ` = "space",`2000` = "number")
+tb
+```
+
+
+### 10.3: Tibbles vs data.frame
+
+Enter your code chunks for Section 10.3 here.
+
+Describe what each chunk code does. 
+```{r}
+# 10.3 Printing
+
+# Tibbles only show the first 10 rows of data and however many columns can fit on screen. Each column of data reports its type.
+tibble(
+  a = lubridate::now() + runif(1e3) * 86400,
+  b = lubridate::today() + runif(1e3) * 30,
+  c = 1:1e3,
+  d = runif(1e3),
+  e = sample(letters, 1e3, replace = TRUE)
+)
+# As we can see there are supposed to be 1000 rows but we get 10 at a time for easy viewing (not crowding out the page or overewhelm console)
+```
+```{r}
+# Printed data frame with user control over the number of rows and the width of the display
+
+nycflights13::flights %>% 
+  print(n = 10, width = Inf)
+```
+```{r}
+# 10.3.1
+# a view of the entire data set
+nycflights13::flights %>% 
+  View()
+```
+#
+```{r}
+# 10.3.2
+# Tools for pulling out single variables from a data frame
+
+df <- tibble(
+  x = runif(5),
+  y = rnorm(5)
+)
+#Extracts by name
+df$x
+#extracts by name using brackets instead of $
+df[["x"]]
+#Extracts by posiiton
+df[[1]]
+```
+
+
+### 10.4: Not required
+
+#### Section 10.5 Questions
+
+Answer the questions *completely.* Use code chunks, text, or both, as necessary.
+
+**1:** How can you tell if an object is a tibble? (Hint: try printing `mtcars`, which is a regular data frame). Identify at least two ways to tell if an object is a tibble. *Hint:* What does `as_tibble()` do? What does `class()` do? What does `str()` do?
+```{r}
+#10.5
+#Printing mtcars as a regular data frame, and then printing it as a tibble data frame
+print(mtcars)
+as_tibble(mtcars)
+class(mtcars)
+str(mtcars)
+# Two ways one could tell if an object is a tibble is if you run as_tibble on the object vs a data frame, the tibble table shows numbers rather than specfic names for the data. When running the object in question (in this case mtcars) with the class() function we get the result "data.frame" rather than "tibble"
+```
+
+
+
+**2:** Compare and contrast the following operations on a data.frame and equivalent tibble. What is different? Why might the default data frame behaviours cause you frustration?
+```{r}
+
+# When I run the data frame and quivalent tibble, I am presented with a 1x2 data frame where as when I run the tibble I get both a 1x1 and 1x2 tibble. The default data frame does not break the data into multiple tables which may cause frustration if one has to sift through a single large table
+df <- data.frame(abc = 1, xyz = "a")
+df$x
+df[, "xyz"]
+df[, c("abc", "xyz")]
+
+
+tb <- tibble(abc = 1, xyz = "a")
+tb$x
+tb[, "xyz"]
+tb[, c("abc", "xyz")]
+
+```
+
+
+
+## Chapter 11: Importing data
+
+Read [R4ds Chapter 11: Data Import](https://r4ds.had.co.nz/data-import.html), sections 1, 2, and 5.
+
+### 11.1 Introduction
+
+Nothing to do here unless you took a break and need to reload `tidyverse`.
+
+### 11.2 Getting started.
+
+Do *not* run the first code chunk of this section, which begins with `heights <- read_csv("data/heights.csv")`. You do not have that data file so the code will not run.
+
+Enter and run the remaining chunks in this section.
+```{r}
+#11.2
+
+# read_csv reads comma delimited files. csv files can be exported by programs like excel and imported into R. csv uses the first line of data for the column names.
+
+read_csv("a,b,c
+1,2,3
+4,5,6")
+
+# you can use skip = n to skip to a specified ine, with n being the number of lines skipped.
+read_csv("The first line of metadata
+  The second line of metadata
+  x,y,z
+  1,2,3", skip = 2)
+
+# comment = "#" can be used to drop all lines beginning with #
+read_csv("# A comment I want to skip
+  x,y,z
+  1,2,3", comment = "#")
+
+# col_names = FALSE will cause R not to treat the first row as headings and sequentially labels then X1 to Xn
+read_csv("1,2,3\n4,5,6", col_names = FALSE)
+
+# Column names can also be given with the col_names function
+read_csv("1,2,3\n4,5,6", col_names = c("x", "y", "z"))
+
+# Missing values in your data can be recognized as missing by R by using the na function to specify a symbol used in place of missing data
+read_csv("a,b,c\n1,2,.", na = ".")
+```
+
+
+#### 11.2 Questions
+
+**1:** What function would you use to read a file where fields were separated with "|"?
+
+```{r}
+#I would use read_delim() since csv works with commas and tsv works with whitespace.
+```
+
+
+**2:** (This question is modified from the text.) Finish the two lines of `read_delim` code so that the first one would read a comma-separated file and the second would read a tab-separated file. You only need to worry about the delimiter. Do not worry about other arguments. Replace the dots in each line with the rest of your code. 
+
+# Comma-separated
+`file <- read_delim("file.csv", .,.,.)`
+
+# Tab-separated
+`file <- read_delim("file.tsv", . . .)`
+
+
+**3:** What are the two most important arguments to `read_fwf()`? Why?
+```{r}
+# The two most important arguments are file, becuase otherwise no data coul dbe read and displayed, and the start,end argument for specifing positions to start and end form in the file.
+```
+
+
+**4:** Skip this question
+
+
+**5: ** Identify what is wrong with each of the following inline CSV files. What happens when you run the code?
+
+```{r}
+#1 and 2 Do not work due to having 3 columns of data present but only 2 were expected. 
+#3 does not work due to an expectation of 3 columns but only getting 2 from the actual data,
+#4 does nto work due to an expected 3 columns of data but 4 columns of data were present.
+#5 does not work due to expecting 2 columns but only getting 1 in the actual data.
+read_csv("a,b\n1,2,3\n4,5,6")
+read_csv("a,b,c\n1,2\n1,2,3,4")
+read_csv("a,b\n\"1")
+read_csv("a,b\n1,2\na,b")
+read_csv("a;b\n1;3")
+```
+
+### 11.3 and 11.4: Not required
+
+### 11.5: Writing to a file
+
+Just read this section. You may find it helpful in the future to save a data file to your hard drive. It is basically the same format as reading a file, except that you must specify the data object to save, in addition to the path and file name.
+
+```{r}
+#personal notes
+# write_csv and write_tsv - export files
+# Always use UTF_8 encoding
+# write_excel_csv() export file excel can read
+```
+
+
+### 11.6 Not required
+
+## Chapter 18: Pipes
+
+Read [R4ds Chapter 18: Pipes](https://r4ds.had.co.nz/pipes.html), sections 1-3.
+```{r}
+#Personal notes
+
+# %>% is a pipe from the magrittr package (Comes with tidyverse)
+```
+
+Nothing to do otherwise for this chapter. Is this easy or what?
+
+**Note:** Trying using pipes for all of the remaining examples. That will help you understand them.
+
+## Chapter 12: Tidy Data
+
+Read [R4ds Chapter 12: Tidy Data](https://r4ds.had.co.nz/tidy-data.html), sections 1-3, 7. 
+
+### 12.1 Introduction
+
+Nothing to do here unless you took a break and need to reload the `tidyverse.`
+
+### 12.2 Tidy data
+
+Study Figure 12.1 and relate the diagram to the three rules listed just above them. Relate that back to the example I gave you in the notes. Bear this in mind as you make data tidy in the second part of this assignment.
+
+You do not have to run any of the examples in this section.
+```{r}
+# Personal notes for tidy data  - each variable must have its own column, each obervation must have its own row, ach value must have its own cell
+```
+
+
+### 12.3 preading and gethering
+
+Read and run the examples through section 12.3.1 (gathering), including the example with `left_join()`. We'll cover joins later.
+```{r}
+# Data not tidy
+table4a
+
+# Numerical Years are placed under a column "years" rather than representing there own columns. The numbered years are gathered into
+table4a %>% 
+  gather(`1999`, `2000`, key = "year", value = "cases")
+
+# Table4b data is gathered as well
+table4b %>% 
+  gather(`1999`, `2000`, key = "year", value = "population")
+
+# Data combined into a single tibble from tables 4a and 4b
+tidy4a <- table4a %>% 
+  gather(`1999`, `2000`, key = "year", value = "cases")
+tidy4b <- table4b %>% 
+  gather(`1999`, `2000`, key = "year", value = "population")
+left_join(tidy4a, tidy4b)
+```
+
+
+#### 12.3 Questions
+
+**2:** Why does this code fail? Fix it so it works.
+
+```{r}
+table4a %>% 
+  gather(1999, 2000, key = "year", value = "cases")
+#> Error in inds_combine(.vars, ind_list): Position must be between 0 and n
+
+# Corrected version where ' was added around each year to specify position table4a %>% 
+  gather('1999', '2000', key = "year", value = "cases")
+```
+
+That is all for Chapter 12. On to the last chapter.
+
+
+## Chapter 5: Data transformation
+
+Read [R4ds Chapter 5: Data Transformation](https://r4ds.had.co.nz/transform.html), sections 1-4.
+
+Time to [get small.](https://www.youtube.com/watch?v=GOrdzCHnpw4) 
+
+### 5.1: Introduction
+
+Load the necessary libraries. As usual, type the examples into and run the code chunks.
+
+```{r}
+#data set
+flights
+
+# 5.1.2 (4-letter abbreviations under column names)
+ # int stands for integers.
+ # dbl stands for doubles, or real numbers.
+ # chr stands for character vectors, or strings.
+ # dttm stands for date-times (a date + a time).
+
+# 5.1.3 - data manipulation
+ # Pick observations by their values (filter()).
+ # Reorder the rows (arrange()).
+ # Pick variables by their names (select()).
+ # Create new variables with functions of existing variables (mutate()).
+ # Collapse many values down to a single summary (summarise()).
+ # These can all be used in conjunction with group_by()
+
+
+```
+
+
+### 5.2: Filter rows with `filter()`
+
+Study Figure 5.1 carefully. Once you learn the `&`, `|`, and `!` logic, you will find them to be very powerful tools.
+```{r}
+#Personal notes
+# 5.2 filter()
+ # Looking at a subset of observation based on their values, in our case it is month 1 and day 1
+ filter(flights, month == 1, day == 1)
+
+#For saving results use the assignment operator <-. Since I used month 1 and day one, the variable will be called jan1
+jan1 <- filter(flights, month == 1, day == 1)
+
+# Printing and results and saving the value(s) toa variable can be combined
+(dec25 <- filter(flights, month == 12, day == 25))
+```
+
+
+#### 5.2 Questions
+
+**1.1:** Find all flights with a delay of 2 hours or more.
+```{r}
+#Flights that had a delay of 2 hours or more
+filter(flights, dep_delay >= 2)
+```
+
+
+**1.2:** Flew to Houston (IAH or HOU)
+```{r}
+# Flights destined for Houston
+filter(flights, dest == 'HOU')
+```
+
+
+**1.3:** Were operated by United (UA), American (AA), or Delta (DL).
+```{r}
+# Flights operated by Delta
+filter(flights, carrier == 'DL')
+```
+
+
+**1.4:** Departed in summer (July, August, and September).
+```{r}
+#Summer flights
+filter(flights, month %in% c(6, 7, 8))
+```
+
+
+**1.5:** Arrived more than two hours late, but didn’t leave late.
+```{r}
+#Flights arrived 2 hours or more late, but did not depart late.
+filter(flights, arr_delay > 2, dep_delay == 0)
+```
+
+**1.6:** Flights were delayed by at least an hour, but made up over 30 minutes in flight. This is a tricky one. Do your best.
+```{r}
+filter(flights, arr_delay >= 1, minute > 30)
+```
+
+
+**1.7:** Departed between midnight and 6am (inclusive)
+```{r}
+#Flights departed bewteen midnight and 6am
+filter(flights, dep_time > 0, arr_time < 360)
+```
+
+
+**2:** Another useful dplyr filtering helper is `between()`. What does it do? Can you use it to simplify the code needed to answer the previous challenges?
+```{r}
+# between() is a shortcut for x >= left and x <= right. Not sure how to make this one work.
+between(flights, dep_time > 0, arr_time < 360)
+```
+
+
+**3:** How many flights have a missing dep_time? What other variables are missing? What might these rows represent?
+```{r}
+#8,255 flight are missing departure times.
+
+# Data is missing for dep_delay, arr_time, arr_delay, tailnum, origin, and air_time
+#1
+filter(flights, is.na(year))
+#2
+filter(flights, is.na(month))
+#3
+filter(flights, is.na(day))
+#4
+filter(flights, is.na(sched_dep_time))
+#5
+filter(flights, is.na(dep_delay))
+#6
+filter(flights, is.na(arr_time))
+#7
+filter(flights, is.na(sched_arr_time))
+#8
+filter(flights, is.na(arr_delay))
+#9
+filter(flights, is.na(carrier))
+#10
+filter(flights, is.na(tailnum))
+#11
+filter(flights, is.na(origin))
+#12
+filter(flights, is.na(dest))
+#13
+filter(flights, is.na(air_time))
+#14
+filter(flights, is.na(distance))
+#15
+filter(flights, is.na(hour))
+#16
+filter(flights, is.na(minute))
+#17
+filter(flights, is.na(time_hour))
+
+```
+
+
+**4:** Why is `NA ^ 0` not missing? Why is `NA | TRUE` not missing? Why is `FALSE & NA` not missing? Can you figure out the general rule? (`NA * 0` is a tricky counterexample!)
+
+```{r}
+NA^0
+NA | TRUE
+```
+
+
+**Note:** For some context, see [this thread](https://blog.revolutionanalytics.com/2016/07/understanding-na-in-r.html)
+
+
+### 5.3 Arrange with `arrange()`
+```{r}
+# Data order is rearranged with the arange function
+arrange(flights, year, month, day)
+```
+
+
+#### 5.3 Questions
+
+**1:** How could you use `arrange()` to sort all missing values to the start? (Hint: use is.na()). **Note:** This one should still have the earliest departure dates after the `NA`s. *Hint:* What does `desc()` do?
+```{r}
+#Not sure how to make this one work
+arrange(flights, desc(dep_delay), is.na(dep_delay))
+```
+
+
+**2:** Sort flights to find the most delayed flights. Find the flights that left earliest. 
+```{r}
+# the desc() funcion re-orders the data in columns in descending order for the chosen variable
+arrange(flights, desc(dep_delay))
+#Ascending order for dep_delay
+arrange(flights, dep_delay)
+```
+
+
+This question is asking for the flights that were most delayed (left latest after scheduled departure time) and least delayed (left ahead of scheduled time).
+
+
+**3:** Sort flights to find the fastest flights. Interpret fastest to mean shortest time in the air.
+```{r}
+#Flights arranged by shortest air time
+arrange(flights, air_time)
+```
+
+
+*Optional challenge:* fastest flight could refer to fastest air speed. Speed is measured in miles per hour but time is minutes. Arrange the data by fastest air speed.
+
+
+**4:** Which flights travelled the longest? Which travelled the shortest?
+```{r}
+# Shorest flights arranged
+arrange(flights, air_time)
+#Longest flights arranged
+arrange(flights, desc(air_time))
+```
+
+
+### 5.4 Select columns with `select()`
+
+#### 5.4 Questions
+```{r}
+#given example from the reading
+select(flights, year, month, day)
+```
+
+
+**1:** Brainstorm as many ways as possible to select `dep_time`, `dep_delay`, `arr_time`, and `arr_delay` from flights. Find at least three ways.
+```{r}
+#Varying arrangements of dep_time, dep_delay, arr_time, and arr_delay.
+select(flights, dep_time, dep_delay, arr_time, arr_delay)
+
+select(flights, dep_delay, arr_time, arr_delay, dep_time)
+
+select(flights, arr_time, arr_delay, dep_time, dep_delay)
+```
+
+
+**2:** What happens if you include the name of a variable multiple times in a `select()` call?
+```{r}
+# When the same variable is used twice nothing seemed to change
+select(flights, dep_time, dep_delay, arr_time, arr_delay, dep_time)
+```
+
+
+
+**3:** What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
+```{r}
+# one_of() matches variable names in a character vector.
+ one_of(vars <- c("year", "month", "day", "dep_delay", "arr_delay"))
+```
+
+
+`vars <- c("year", "month", "day", "dep_delay", "arr_delay")`
+
+
+
+**4:** Does the result of running the following code surprise you? How do the select helpers deal with case by default? How can you change that default?
+
+`select(flights, contains("TIME"))`
+```{r}
+#The following code did not surprise me. 
+select(flights, contains("TIME"))
+
+time_flights <- select(flights, contains("TIME"))
+
+time_flights
+# As long as I use time_flights I will get the time oriented variables
+```
+
+
+
+
