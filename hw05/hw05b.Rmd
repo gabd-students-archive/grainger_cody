@@ -1,0 +1,28 @@
+---
+title: "HW05 Part 1: Complete the sections"
+author: "Cody Grainger"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+```
+```{r}
+limpets
+
+#The data appear to be tidy
+
+limpets_vector <- c("PBL", "KNRM", "VBG", "WP", "PF", "DP", "SIO", "CTZ1", "CTZ2", "CNM")
+
+factor(limpets_vector,
+       ordered = TRUE,
+       levels = c("PBL", "KNRM", "VBG", "WP", "PF", "DP", "SIO", "CTZ1", "CTZ2", "CNM"))
+
+boxplot(Length~Site,data=limpets, main="Limpets",
+   xlab="Site", ylab="Length") 
+```
+
+
