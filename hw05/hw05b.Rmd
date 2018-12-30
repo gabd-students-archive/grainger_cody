@@ -22,7 +22,10 @@ factor(limpets_vector,
        levels = c("PBL", "KNRM", "VBG", "WP", "PF", "DP", "SIO", "CTZ1", "CTZ2", "CNM"))
 
 boxplot(Length~Site,data=limpets, main="Limpets",
-   xlab="Site", ylab="Length") 
+   xlab="Site", ylab="Length (Millimeters)") 
+
+#DP and WP have outliers. 
 ```
+
 
 
