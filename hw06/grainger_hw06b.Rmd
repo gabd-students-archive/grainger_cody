@@ -1,0 +1,17 @@
+---
+title: "HW05 Part 1: Complete the sections"
+author: "Cody Grainger"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(tidyverse)
+library(knitr)
+library(smatr)
+```
+```{r}
+dart <- read.table("C:/Users/bacon/Documents/bi485/grainger_cody/data/darters.txt")
+```
+
