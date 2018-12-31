@@ -6,12 +6,23 @@ output: html_notebook
 editor_options: 
   chunk_output_type: inline
 ---
+file_path <- "C:/Users/bacon/Documents/bi485/grainger_cody/data"
+#To this day I have no idea why the user was set as bacon
 ```{r}
 library(tidyverse)
 library(knitr)
 library(smatr)
+
 ```
 ```{r}
-dart <- read.table("C:/Users/bacon/Documents/bi485/grainger_cody/data/darters.txt")
+darters <- read_file("darters.txt")
 ```
+
+```{r}
+darters
+```
+```{r}
+(Dart <- filter(darters, species == tetrazonum, species == zonale))
+```
+
 
