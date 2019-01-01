@@ -1,5 +1,5 @@
 ---
-title: "HW05 Part 1: Complete the sections"
+title: "HW06 Part 2(b): Complete the sections"
 author: "Cody Grainger"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: html_notebook
@@ -9,18 +9,18 @@ editor_options:
 file_path <- "C:/Users/bacon/Documents/bi485/grainger_cody/data"
 #To this day I have no idea why the user was set as bacon
 ```{r}
-library(tidyverse)
-library(knitr)
-library(smatr)
+library("tidyverse")
+library("knitr")
+library("smatr")
 
 ```
+
 ```{r}
 darters <- read_file("darters.txt")
+view(darters)
 ```
 
-```{r}
-darters
-```
+
 ```{r}
 (Dart <- filter(darters, species == tetrazonum, species == zonale))
 ```
