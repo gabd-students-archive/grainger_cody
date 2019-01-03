@@ -13,7 +13,65 @@ library("devtools")
 ```
 
 ```{r}
-devtools::install_github("thomasp85/patchwork")
+devtools::install_github("thomasp85/patchwork", force = TRUE)
+library("patchwork")
 ```
+```{r}
+#Keep getting weird working directory errors, I temporarily set it manually here just to get the raw data into a "sparrows"
+setwd("C:/Users/bacon/Documents/bi485/grainger_cody/data")
+sparrows_raw <- read_tsv("sparrows.txt")
+```
+
+```{r}
+#View imported tsv
+View(sparrows_raw)
+```
+
+```{r}
+sparrows <- sparrows_raw %>%
+  mutate(box_group = "Sparrows",
+         row_order = 1:nrow(.))
+
+View(sparrows)
+# The new columns appear to be working correctly
+```
+### Figure 2: Outliers
+
+```{r}
+sparrows %>%
+  ggplot(aes(x = ))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Cody Grainger" />
 
-<meta name="date" content="2019-01-01" />
+<meta name="date" content="2019-01-03" />
 
 <title>HW07 Part 1: Complete the sections</title>
 
@@ -237,7 +237,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">HW07 Part 1: Complete the sections</h1>
 <h4 class="author"><em>Cody Grainger</em></h4>
-<h4 class="date"><em>01 January 2019</em></h4>
+<h4 class="date"><em>03 January 2019</em></h4>
 
 </div>
 
@@ -245,9 +245,21 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInRpZHl2ZXJzZVwiKVxubGlicmFyeShcIkdHYWxseVwiKVxuYGBgIn0= -->
-<pre class="r"><code>library(&quot;tidyverse&quot;)
-library(&quot;GGally&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInRpZHl2ZXJzZVwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(&quot;tidyverse&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXHUwMDFiWzMwbS0tIFx1MDAxYlsxbUF0dGFjaGluZyBwYWNrYWdlc1x1MDAxYlsyMm0gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZSAxLjIuMSAtLVx1MDAxYlszOW1cblx1MDAxYlszMG1cdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bWdncGxvdDJcdTAwMWJbMzBtIDMuMS4wICAgICBcdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bXB1cnJyICBcdTAwMWJbMzBtIDAuMi41XG5cdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bXRpYmJsZSBcdTAwMWJbMzBtIDEuNC4yICAgICBcdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bWRwbHlyICBcdTAwMWJbMzBtIDAuNy44XG5cdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bXRpZHlyICBcdTAwMWJbMzBtIDAuOC4yICAgICBcdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bXN0cmluZ3JcdTAwMWJbMzBtIDEuMy4xXG5cdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bXJlYWRyICBcdTAwMWJbMzBtIDEuMy4xICAgICBcdTAwMWJbMzJtdlx1MDAxYlszMG0gXHUwMDFiWzM0bWZvcmNhdHNcdTAwMWJbMzBtIDAuMy4wXHUwMDFiWzM5bVxuXHUwMDFiWzMwbS0tIFx1MDAxYlsxbUNvbmZsaWN0c1x1MDAxYlsyMm0gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxuXHUwMDFiWzMxbXhcdTAwMWJbMzBtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszMG06Olx1MDAxYlszMm1maWx0ZXIoKVx1MDAxYlszMG0gbWFza3MgXHUwMDFiWzM0bXN0YXRzXHUwMDFiWzMwbTo6ZmlsdGVyKClcblx1MDAxYlszMW14XHUwMDFiWzMwbSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzBtOjpcdTAwMWJbMzJtbGFnKClcdTAwMWJbMzBtICAgIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszMG06OmxhZygpXHUwMDFiWzM5bVxuIn0= -->
+<pre><code>[30m-- [1mAttaching packages[22m --------------------------------------- tidyverse 1.2.1 --[39m
+[30m[32mv[30m [34mggplot2[30m 3.1.0     [32mv[30m [34mpurrr  [30m 0.2.5
+[32mv[30m [34mtibble [30m 1.4.2     [32mv[30m [34mdplyr  [30m 0.7.8
+[32mv[30m [34mtidyr  [30m 0.8.2     [32mv[30m [34mstringr[30m 1.3.1
+[32mv[30m [34mreadr  [30m 1.3.1     [32mv[30m [34mforcats[30m 0.3.0[39m
+[30m-- [1mConflicts[22m ------------------------------------------ tidyverse_conflicts() --
+[31mx[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
+[31mx[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()[39m</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcIkdHYWxseVwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(&quot;GGally&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDjpLzjuLFHR2FsbHnjpLzjuLIgd2FzIGJ1aWx0IHVuZGVyIFIgdmVyc2lvbiAzLjUuMlxuQXR0YWNoaW5nIHBhY2thZ2U6IOOkvOO4sUdHYWxseeOkvOO4slxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDjpLzjuLFwYWNrYWdlOmRwbHly46S847iyOlxuXG4gICAgbmFzYVxuIn0= -->
 <pre><code>package 㤼㸱GGally㤼㸲 was built under R version 3.5.2
@@ -263,12 +275,15 @@ The following object is masked from 㤼㸱package:dplyr㤼㸲:
 <!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDjpLzjuLFkZXZ0b29sc+OkvOO4siB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuNS4ycGFja2FnZSDjpLzjuLF1c2V0aGlz46S847iyIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy41LjJcbiJ9 -->
 <pre><code>package 㤼㸱devtools㤼㸲 was built under R version 3.5.2package 㤼㸱usethis㤼㸲 was built under R version 3.5.2</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInBhdGNod29ya1wiKVxuYGBgIn0= -->
+<pre class="r"><code>library(&quot;patchwork&quot;)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwidGhvbWFzcDg1L3BhdGNod29ya1wiKVxuYGBgIn0= -->
-<pre class="r"><code>devtools::install_github(&quot;thomasp85/patchwork&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwidGhvbWFzcDg1L3BhdGNod29ya1wiLCBmb3JjZSA9IFRSVUUpXG5gYGAifQ== -->
+<pre class="r"><code>devtools::install_github(&quot;thomasp85/patchwork&quot;, force = TRUE)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiRG93bmxvYWRpbmcgR2l0SHViIHJlcG8gdGhvbWFzcDg1L3BhdGNod29ya0BtYXN0ZXJcbldBUk5JTkc6IFJ0b29scyBpcyByZXF1aXJlZCB0byBidWlsZCBSIHBhY2thZ2VzLCBidXQgaXMgbm90IGN1cnJlbnRseSBpbnN0YWxsZWQuXG5cblBsZWFzZSBkb3dubG9hZCBhbmQgaW5zdGFsbCBSdG9vbHMgMy41IGZyb20gaHR0cDovL2NyYW4uci1wcm9qZWN0Lm9yZy9iaW4vd2luZG93cy9SdG9vbHMvLlxuIn0= -->
 <pre><code>Downloading GitHub repo thomasp85/patchwork@master
@@ -276,18 +291,16 @@ WARNING: Rtools is required to build R packages, but is not currently installed.
 
 Please download and install Rtools 3.5 from http://cran.r-project.org/bin/windows/Rtools/.</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICBcbiAgXG4gIFxuXHUwMDFiWzMybeKImlx1MDAxYlszOW0gIFx1MDAxYlszODs1OzI0N21jaGVja2luZyBmb3IgZmlsZSAnQzpcXFVzZXJzXFxiYWNvblxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXFJ0bXBnWlhNVkJcXHJlbW90ZXMyNTQ0Y2Q0MjdhMlxcdGhvbWFzcDg1LXBhdGNod29yay1mZDc5NThiL0RFU0NSSVBUSU9OJ1x1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM2bSAoNDU1bXMpXHUwMDFiWzM2bVx1MDAxYlszOW1cblxuICBcbiAgXG4gIFxuXHUwMDFiWzM4OzU7MjQ3bS1cdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bSAgXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N21wcmVwYXJpbmcgJ3BhdGNod29yayc6XHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG4gICBjaGVja2luZyBERVNDUklQVElPTiBtZXRhLWluZm9ybWF0aW9uIC4uLlxuICBcblx1MDAxYlszMm3iiJpcdTAwMWJbMzltICBcdTAwMWJbMzg7NTsyNDdtY2hlY2tpbmcgREVTQ1JJUFRJT04gbWV0YS1pbmZvcm1hdGlvblx1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM5bVxuXG4gIFxuICBcbiAgXG5cdTAwMWJbMzg7NTsyNDdtLVx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtICBcdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bWNoZWNraW5nIGZvciBMRiBsaW5lLWVuZGluZ3MgaW4gc291cmNlIGFuZCBtYWtlIGZpbGVzIGFuZCBzaGVsbCBzY3JpcHRzXHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG5cdTAwMWJbMzg7NTsyNDdtLVx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtICBcdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bWNoZWNraW5nIGZvciBlbXB0eSBvciB1bm5lZWRlZCBkaXJlY3Rvcmllc1x1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM5bVxuXG4gIFxuXHUwMDFiWzM4OzU7MjQ3bS1cdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bSAgXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N21idWlsZGluZyAncGF0Y2h3b3JrXzAuMC4xLnRhci5neidcdTAwMWJbMzltXHUwMDFiWzM2bVx1MDAxYlszOW1cblxuICBcbiAgIFxuIn0= -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBcbiAgXG4gIFxuXHUwMDFiWzMybeKImlx1MDAxYlszOW0gIFx1MDAxYlszODs1OzI0N21jaGVja2luZyBmb3IgZmlsZSAnQzpcXFVzZXJzXFxiYWNvblxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXFJ0bXB5d1RaSzlcXHJlbW90ZXM0MjI4N2M0OTkwXFx0aG9tYXNwODUtcGF0Y2h3b3JrLWZkNzk1OGIvREVTQ1JJUFRJT04nXHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG5cbiAgXG4gIFxuICBcblx1MDAxYlszODs1OzI0N20tXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N20gIFx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtcHJlcGFyaW5nICdwYXRjaHdvcmsnOlx1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM5bVxuXHUwMDFiWzMybeKImlx1MDAxYlszOW0gIFx1MDAxYlszODs1OzI0N21jaGVja2luZyBERVNDUklQVElPTiBtZXRhLWluZm9ybWF0aW9uXHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG5cbiAgXG4gIFxuICBcblx1MDAxYlszODs1OzI0N20tXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N20gIFx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtY2hlY2tpbmcgZm9yIExGIGxpbmUtZW5kaW5ncyBpbiBzb3VyY2UgYW5kIG1ha2UgZmlsZXMgYW5kIHNoZWxsIHNjcmlwdHNcdTAwMWJbMzltXHUwMDFiWzM2bVx1MDAxYlszOW1cblx1MDAxYlszODs1OzI0N20tXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N20gIFx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtY2hlY2tpbmcgZm9yIGVtcHR5IG9yIHVubmVlZGVkIGRpcmVjdG9yaWVzXHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG5cbiAgXG5cdTAwMWJbMzg7NTsyNDdtLVx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtICBcdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bWJ1aWxkaW5nICdwYXRjaHdvcmtfMC4wLjEudGFyLmd6J1x1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM5bVxuXG4gIFxuICAgXG4ifQ== -->
 <pre><code>  
   
   
-[32m√[39m  [38;5;247mchecking for file 'C:\Users\bacon\AppData\Local\Temp\RtmpgZXMVB\remotes2544cd427a2\thomasp85-patchwork-fd7958b/DESCRIPTION'[39m[36m[36m (455ms)[36m[39m
+[32m√[39m  [38;5;247mchecking for file 'C:\Users\bacon\AppData\Local\Temp\RtmpywTZK9\remotes42287c4990\thomasp85-patchwork-fd7958b/DESCRIPTION'[39m[36m[39m
 
   
   
   
 [38;5;247m-[39m[38;5;247m  [39m[38;5;247mpreparing 'patchwork':[39m[36m[39m
-   checking DESCRIPTION meta-information ...
-  
 [32m√[39m  [38;5;247mchecking DESCRIPTION meta-information[39m[36m[39m
 
   
@@ -306,7 +319,7 @@ Please download and install Rtools 3.5 from http://cran.r-project.org/bin/window
 <pre><code>Installing package into 㤼㸱C:/Users/bacon/Documents/R/win-library/3.5㤼㸲
 (as 㤼㸱lib㤼㸲 is unspecified)</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiKiBpbnN0YWxsaW5nICpzb3VyY2UqIHBhY2thZ2UgJ3BhdGNod29yaycgLi4uXG4qKiBSXG4qKiBieXRlLWNvbXBpbGUgYW5kIHByZXBhcmUgcGFja2FnZSBmb3IgbGF6eSBsb2FkaW5nXG4qKiBoZWxwXG4qKiogaW5zdGFsbGluZyBoZWxwIGluZGljZXNcbiAgY29udmVydGluZyBoZWxwIGZvciBwYWNrYWdlICdwYXRjaHdvcmsnXG4gICAgZmluZGluZyBIVE1MIGxpbmtzIC4uLiBkb25lXG4gICAgY2VsbEdyb2IgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIHBhdGNod29yayAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICBwYXRjaHdvcmtHcm9iICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4gICAgcGxvdF9hbm5vdGF0aW9uICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIHBsb3RfYXJpdGhtZXRpYyAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICBwbG90X2xheW91dCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4gICAgcGxvdF9zcGFjZXIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIHdyYXBfZWxlbWVudHMgICAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcblJkIHdhcm5pbmc6IEM6L1VzZXJzL2JhY29uL0FwcERhdGEvTG9jYWwvVGVtcC9SdG1wTWRTUGcxL1IuSU5TVEFMTDI2MDgzODQyMjViNC9wYXRjaHdvcmsvbWFuL3dyYXBfZWxlbWVudHMuUmQ6MzE6IGZpbGUgbGluayAnZ2d0aXRsZScgaW4gcGFja2FnZSAnZ2dwbG90MicgZG9lcyBub3QgZXhpc3QgYW5kIHNvIGhhcyBiZWVuIHRyZWF0ZWQgYXMgYSB0b3BpY1xuICAgIHdyYXBfZ2dwbG90X2dyb2IgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICB3cmFwX3Bsb3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4qKiogY29weWluZyBmaWd1cmVzXG4qKiBidWlsZGluZyBwYWNrYWdlIGluZGljZXNcbioqIHRlc3RpbmcgaWYgaW5zdGFsbGVkIHBhY2thZ2UgY2FuIGJlIGxvYWRlZFxuKiBET05FIChwYXRjaHdvcmspXG5JbiBSIENNRCBJTlNUQUxMXG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiKiBpbnN0YWxsaW5nICpzb3VyY2UqIHBhY2thZ2UgJ3BhdGNod29yaycgLi4uXG4qKiBSXG4qKiBieXRlLWNvbXBpbGUgYW5kIHByZXBhcmUgcGFja2FnZSBmb3IgbGF6eSBsb2FkaW5nXG4qKiBoZWxwXG4qKiogaW5zdGFsbGluZyBoZWxwIGluZGljZXNcbiAgY29udmVydGluZyBoZWxwIGZvciBwYWNrYWdlICdwYXRjaHdvcmsnXG4gICAgZmluZGluZyBIVE1MIGxpbmtzIC4uLiBkb25lXG4gICAgY2VsbEdyb2IgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIHBhdGNod29yayAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICBwYXRjaHdvcmtHcm9iICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4gICAgcGxvdF9hbm5vdGF0aW9uICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIHBsb3RfYXJpdGhtZXRpYyAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICBwbG90X2xheW91dCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4gICAgcGxvdF9zcGFjZXIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIHdyYXBfZWxlbWVudHMgICAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcblJkIHdhcm5pbmc6IEM6L1VzZXJzL2JhY29uL0FwcERhdGEvTG9jYWwvVGVtcC9SdG1wd1o5a1RkL1IuSU5TVEFMTDNlYzQ1MGFiMmE3MS9wYXRjaHdvcmsvbWFuL3dyYXBfZWxlbWVudHMuUmQ6MzE6IGZpbGUgbGluayAnZ2d0aXRsZScgaW4gcGFja2FnZSAnZ2dwbG90MicgZG9lcyBub3QgZXhpc3QgYW5kIHNvIGhhcyBiZWVuIHRyZWF0ZWQgYXMgYSB0b3BpY1xuICAgIHdyYXBfZ2dwbG90X2dyb2IgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICB3cmFwX3Bsb3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4qKiogY29weWluZyBmaWd1cmVzXG4qKiBidWlsZGluZyBwYWNrYWdlIGluZGljZXNcbioqIHRlc3RpbmcgaWYgaW5zdGFsbGVkIHBhY2thZ2UgY2FuIGJlIGxvYWRlZFxuKiBET05FIChwYXRjaHdvcmspXG5JbiBSIENNRCBJTlNUQUxMXG4ifQ== -->
 <pre><code>* installing *source* package 'patchwork' ...
 ** R
 ** byte-compile and prepare package for lazy loading
@@ -322,7 +335,7 @@ Please download and install Rtools 3.5 from http://cran.r-project.org/bin/window
     plot_layout                             html  
     plot_spacer                             html  
     wrap_elements                           html  
-Rd warning: C:/Users/bacon/AppData/Local/Temp/RtmpMdSPg1/R.INSTALL2608384225b4/patchwork/man/wrap_elements.Rd:31: file link 'ggtitle' in package 'ggplot2' does not exist and so has been treated as a topic
+Rd warning: C:/Users/bacon/AppData/Local/Temp/RtmpwZ9kTd/R.INSTALL3ec450ab2a71/patchwork/man/wrap_elements.Rd:31: file link 'ggtitle' in package 'ggplot2' does not exist and so has been treated as a topic
     wrap_ggplot_grob                        html  
     wrap_plots                              html  
 *** copying figures
@@ -331,11 +344,76 @@ Rd warning: C:/Users/bacon/AppData/Local/Temp/RtmpMdSPg1/R.INSTALL2608384225b4/p
 * DONE (patchwork)
 In R CMD INSTALL</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInBhdGNod29ya1wiKVxuYGBgIn0= -->
+<pre class="r"><code>library(&quot;patchwork&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0tlZXAgZ2V0dGluZyB3ZWlyZCB3b3JraW5nIGRpcmVjdG9yeSBlcnJvcnMsIEkgc2V0IGl0IG1hbnVhbGx5IGhlcmUganVzdCB0byBnZXQgdGhlIGRhdGEgaW50byBhIFwic3BhcnJvd3NcIlxuc2V0d2QoXCJDOi9Vc2Vycy9iYWNvbi9Eb2N1bWVudHMvYmk0ODUvZ3JhaW5nZXJfY29keS9kYXRhXCIpXG5gYGAifQ== -->
+<pre class="r"><code>#Keep getting weird working directory errors, I set it manually here just to get the data into a &quot;sparrows&quot;
+setwd(&quot;C:/Users/bacon/Documents/bi485/grainger_cody/data&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiVGhlIHdvcmtpbmcgZGlyZWN0b3J5IHdhcyBjaGFuZ2VkIHRvIEM6L1VzZXJzL2JhY29uL0RvY3VtZW50cy9iaTQ4NS9ncmFpbmdlcl9jb2R5L2RhdGEgaW5zaWRlIGEgbm90ZWJvb2sgY2h1bmsuIFRoZSB3b3JraW5nIGRpcmVjdG9yeSB3aWxsIGJlIHJlc2V0IHdoZW4gdGhlIGNodW5rIGlzIGZpbmlzaGVkIHJ1bm5pbmcuIFVzZSB0aGUga25pdHIgcm9vdC5kaXIgb3B0aW9uIGluIHRoZSBzZXR1cCBjaHVuayB0byBjaGFuZ2UgdGhlIHdvcmtpbmcgZGlyZWN0b3J5IGZvciBub3RlYm9vayBjaHVua3MuXG4ifQ== -->
+<pre><code>The working directory was changed to C:/Users/bacon/Documents/bi485/grainger_cody/data inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3BhcnJvd3NfcmF3IDwtIHJlYWRfdHN2KFwic3BhcnJvd3MudHh0XCIpXG5gYGAifQ== -->
+<pre class="r"><code>sparrows_raw &lt;- read_tsv(&quot;sparrows.txt&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICB3aW5nY3JkID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIGZsYXR3aW5nID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIHRhcnN1cyA9IFx1MDAxYlszMm1jb2xfZG91YmxlKClcdTAwMWJbMzltLFxuICBoZWFkID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIGN1bG1lbiA9IFx1MDAxYlszMm1jb2xfZG91YmxlKClcdTAwMWJbMzltLFxuICBuYWxvc3BpID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIHd0ID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIGJhbmRzdGF0ID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIGluaXRpYWxzID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIFllYXIgPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgTW9udGggPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgRGF5ID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIExvY2F0aW9uID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIFNwZWNpZXNDb2RlID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIFNleCA9IFx1MDAxYlszMm1jb2xfZG91YmxlKClcdTAwMWJbMzltLFxuICBBZ2UgPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bVxuKVxuIn0= -->
+<pre><code>Parsed with column specification:
+cols(
+  wingcrd = [32mcol_double()[39m,
+  flatwing = [32mcol_double()[39m,
+  tarsus = [32mcol_double()[39m,
+  head = [32mcol_double()[39m,
+  culmen = [32mcol_double()[39m,
+  nalospi = [32mcol_double()[39m,
+  wt = [32mcol_double()[39m,
+  bandstat = [32mcol_double()[39m,
+  initials = [32mcol_double()[39m,
+  Year = [32mcol_double()[39m,
+  Month = [32mcol_double()[39m,
+  Day = [32mcol_double()[39m,
+  Location = [32mcol_double()[39m,
+  SpeciesCode = [32mcol_double()[39m,
+  Sex = [32mcol_double()[39m,
+  Age = [32mcol_double()[39m
+)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1ZpZXcgaW1wb3J0ZWQgdHN2XG5WaWV3KHNwYXJyb3dzX3JhdylcbmBgYCJ9 -->
+<pre class="r"><code>#View imported tsv
+View(sparrows_raw)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3BhcnJvd3MgPC0gc3BhcnJvd3NfcmF3ICU+JVxuICBtdXRhdGUoYm94X2dyb3VwID0gXCJTcGFycm93c1wiLFxuICAgICAgICAgcm93X29yZGVyID0gMTpucm93KC4pKVxuVmlldyhzcGFycm93cylcbmBgYCJ9 -->
+<pre class="r"><code>sparrows &lt;- sparrows_raw %&gt;%
+  mutate(box_group = &quot;Sparrows&quot;,
+         row_order = 1:nrow(.))
+View(sparrows)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="figure-2-outliers" class="section level3">
+<h3>Figure 2: Outliers</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3BhcnJvd3MgJT4lXG4gIGdncGxvdChhZXMoeCA9ICkpXG5gYGAifQ== -->
+<pre class="r"><code>sparrows %&gt;%
+  ggplot(aes(x = ))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXMDcgUGFydCAxOiBDb21wbGV0ZSB0aGUgc2VjdGlvbnMiDQphdXRob3I6ICJDb2R5IEdyYWluZ2VyIg0KZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIgJVknKWAiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQpgYGB7cn0NCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpsaWJyYXJ5KCJHR2FsbHkiKQ0KbGlicmFyeSgiZGV2dG9vbHMiKQ0KYGBgDQoNCmBgYHtyfQ0KZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJ0aG9tYXNwODUvcGF0Y2h3b3JrIikNCmBgYA0KDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXMDcgUGFydCAxOiBDb21wbGV0ZSB0aGUgc2VjdGlvbnMiDQphdXRob3I6ICJDb2R5IEdyYWluZ2VyIg0KZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIgJVknKWAiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQpgYGB7cn0NCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpsaWJyYXJ5KCJHR2FsbHkiKQ0KbGlicmFyeSgiZGV2dG9vbHMiKQ0KYGBgDQoNCmBgYHtyfQ0KZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJ0aG9tYXNwODUvcGF0Y2h3b3JrIiwgZm9yY2UgPSBUUlVFKQ0KbGlicmFyeSgicGF0Y2h3b3JrIikNCmBgYA0KYGBge3J9DQojS2VlcCBnZXR0aW5nIHdlaXJkIHdvcmtpbmcgZGlyZWN0b3J5IGVycm9ycywgSSB0ZW1wb3JhcmlseSBzZXQgaXQgbWFudWFsbHkgaGVyZSBqdXN0IHRvIGdldCB0aGUgcmF3IGRhdGEgaW50byBhICJzcGFycm93cyINCnNldHdkKCJDOi9Vc2Vycy9iYWNvbi9Eb2N1bWVudHMvYmk0ODUvZ3JhaW5nZXJfY29keS9kYXRhIikNCnNwYXJyb3dzX3JhdyA8LSByZWFkX3Rzdigic3BhcnJvd3MudHh0IikNCmBgYA0KDQpgYGB7cn0NCiNWaWV3IGltcG9ydGVkIHRzdg0KVmlldyhzcGFycm93c19yYXcpDQpgYGANCg0KYGBge3J9DQpzcGFycm93cyA8LSBzcGFycm93c19yYXcgJT4lDQogIG11dGF0ZShib3hfZ3JvdXAgPSAiU3BhcnJvd3MiLA0KICAgICAgICAgcm93X29yZGVyID0gMTpucm93KC4pKQ0KDQpWaWV3KHNwYXJyb3dzKQ0KIyBUaGUgbmV3IGNvbHVtbnMgYXBwZWFyIHRvIGJlIHdvcmtpbmcgY29ycmVjdGx5DQpgYGANCiMjIyBGaWd1cmUgMjogT3V0bGllcnMNCg0KYGBge3J9DQpzcGFycm93cyAlPiUNCiAgZ2dwbG90KGFlcyh4ID0gKSkNCmBgYA0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo=</div>
 
 
 
