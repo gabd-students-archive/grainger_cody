@@ -38,12 +38,39 @@ View(sparrows)
 ### Figure 2: Outliers
 
 ```{r}
-sparrows %>%
-  ggplot(aes(x = ))
+#Boxplot with the "sparrows"" data
+box_plot <- sparrows %>%
+  ggplot(aes(x = box_group, y = wingcrd)) + 
+  geom_boxplot(width = 0.25) +
+  labs(x = NULL,
+       y = "Wing length (mm)")
+
+box_plot
 ```
 
+```{r}
+#Range of values displayed on a Cleveland dot plot
 
+cleveland_plot <- sparrows %>%
+  ggplot(aes(x = wingcrd, y = row_order)) + 
+  geom_point() + 
+  labs(x = "Wing length (mm)", y = "Order of the data")
 
+cleveland_plot
+```
+
+```{r}
+# Both plots side by side
+
+box_plot + cleveland_plot
+```
+
+```{r}
+
+#Same as above with coordflip applied
+box_plot + cleveland_plot + coord_flip()
+```
+### Figure 3: Outliers
 
 
 
